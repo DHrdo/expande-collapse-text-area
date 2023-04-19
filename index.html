@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <link rel="stylesheet" href="style.css" />
+
+    <body>
+        <div class="container">
+            <div class="box upper-rounded">
+                <p class="text-title">Chi siamo?</p>
+                <button class="switchIcon">+</button>
+                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi tempore fugit
+                    iusto voluptates unde autem dolores accusantium reiciendis exercitationem atque, sapiente
+                    reprehenderit labore laborum laboriosam velit commodi libero eligendi? Adipisci!</p>
+            </div>
+
+            <div class="box">
+                <p class="text-title">Come puoi contattarci?</p>
+                <button class="switchIcon">+</button>
+                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi tempore fugit
+                    iusto voluptates unde autem dolores accusantium reiciendis exercitationem atque, sapiente
+                    reprehenderit labore laborum laboriosam velit commodi libero eligendi? Adipisci!</p>
+            </div>
+            <div class="box  bottom-rounded">
+                <p class="text-title">I nostri sponsor</p>
+                <button class="switchIcon">+</button>
+                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi tempore fugit
+                    iusto voluptates unde autem dolores accusantium reiciendis exercitationem atque, sapiente
+                    reprehenderit labore laborum laboriosam velit commodi libero eligendi? Adipisci!</p>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        const switchIcon = document.querySelectorAll('.switchIcon');
+        const content = document.querySelectorAll('.content');
+
+        switchIcon.forEach(function (button, index) {
+            button.addEventListener('click', () => {
+                switchIcon[index].innerHTML = "-";
+                const getStyle = window.getComputedStyle(content[index]);
+                if (getStyle.display === 'none') {
+                    content[index].style.display = 'inherit';
+                } else {
+                    switchIcon[index].innerHTML = '+'
+                    content[index].style.display = 'none';
+                };
+
+                for (let i = 0; i < switchIcon.length; i++) {
+                    if (i !== index && window.getComputedStyle(content[i]).display !== 'none') {
+                        switchIcon[i].innerHTML = '+'
+                        content[i].style.display = 'none';
+                    };
+                };
+            });
+        });
+    </script>
+</body>
+
+</html>
